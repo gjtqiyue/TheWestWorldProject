@@ -1,41 +1,29 @@
 #include "Miner.h"
 #include "MinerState.h"
 
-Miner::Miner(int ID): BaseGameEntity(ID)
-{
-	myGoldCarried = 0;
-	myThirst = 0;
-	myFatigue = 0;
-	myMoneyInBank = 0;
-}
-
-Miner::~Miner()
-{
-
-}
+//Miner::Miner(int ID): BaseGameEntity(ID)
+//{
+//	myLocation = Location::shack;
+//	myGoldCarried = 0;
+//	myThirst = 0;
+//	myFatigue = 0;
+//	myMoneyInBank = 0;
+//
+//	// set up the FSM
+//	myStateMachine = new StateMachine<Miner>(this);
+//
+//	myStateMachine->SetCurrentState(GoHomeAndSleep::getInstance());
+//	myStateMachine->SetGlobalState(MinerGlobalState::getInstance());
+//}
 
 void Miner::Update()
 {
 	myThirst++;
 
 	// execute the state
-	if (pCurrentState) { // make sure the pointer is valid
-		pCurrentState->Execute(this);
-	}
-}
-
-void Miner::ChangeState(State * pNewState)
-{
-	// try to check both pointers before calling it
-
-	// exit the current state
-	pCurrentState->Exit(this);
-
-	// update the new state
-	pCurrentState = pNewState;
-
-	// enter the current state
-	pCurrentState->Enter(this);
+	//if (pCurrentState) { // make sure the pointer is valid
+	//	pCurrentState->Execute(this);
+	//}
 }
 
 Location Miner::getLocation() const

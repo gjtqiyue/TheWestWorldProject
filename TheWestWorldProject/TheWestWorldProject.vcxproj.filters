@@ -30,6 +30,9 @@
     <ClInclude Include="MinerState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="StateMachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGameEntity.cpp">

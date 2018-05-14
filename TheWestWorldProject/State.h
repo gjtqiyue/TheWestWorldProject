@@ -6,24 +6,22 @@ class Miner;
 
 enum Location {
 	goldmine,
+	shack
 };
 
+template <class entity_type>
 class State
 {
 public:
 
 	virtual ~State() {};
 
-	virtual void Enter(Miner* a) = 0;
+	virtual void Enter(entity_type*) = 0;
 
-	virtual void Execute(Miner* b) = 0;
+	virtual void Execute(entity_type*) = 0;
 
-	virtual void Exit(Miner* c) = 0;
+	virtual void Exit(entity_type*) = 0;
 };
-
-
-
-
 
 #endif
 

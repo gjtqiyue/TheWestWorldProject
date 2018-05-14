@@ -4,7 +4,30 @@
 
 #include "State.h"
 
-class EnterMineAndDigForNugget : public State
+class MinerGlobalState : public State<Miner>
+{
+private:
+
+	// constructor is private
+	MinerGlobalState() {};
+
+	// copy ctor and assignment should be private
+	MinerGlobalState(const MinerGlobalState &);
+	MinerGlobalState& operator=(const MinerGlobalState &);
+
+public:
+
+	// methods
+	virtual void Enter(Miner* pMiner);
+
+	virtual void Execute(Miner* pMiner);
+
+	virtual void Exit(Miner* pMiner);
+
+	static MinerGlobalState* getInstance();
+};
+
+class EnterMineAndDigForNugget : public State<Miner>
 {
 private:
 
@@ -30,7 +53,7 @@ public:
 
 };
 
-class VisitBankAndDepositGold : public State
+class VisitBankAndDepositGold : public State<Miner>
 {
 private:
 
@@ -55,7 +78,7 @@ public:
 
 };
 
-class GoHomeAndSleep : public State
+class GoHomeAndSleep : public State<Miner>
 {
 private:
 
@@ -80,7 +103,7 @@ public:
 
 };
 
-class QuenchThirst : public State
+class QuenchThirst : public State<Miner>
 {
 private:
 

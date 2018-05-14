@@ -4,17 +4,32 @@
 
 #include "BaseGameEntity.h"
 #include "State.h"
+#include "MinerState.h"
+#include "StateMachine.h"
 
 class Miner : public BaseGameEntity
 {
 public:
-	Miner(int ID);
+	Miner(int id) :BaseGameEntity(id),
+		myLocation(Location::shack),
+		myGoldCarried(0),
+		myMoneyInBank(0),
+		myThirst(0),
+		myFatigue(0)
+	{
+		myStateMachine = new StateMachine<Miner>(this);
 
-	~Miner();
+		myStateMachine->SetCurrentState(GoHomeAndSleep::getInstance());
+	}
+
+	~Miner() { delete myStateMachine; };
 
 	void Update();
 
-	void ChangeState(State*);
+	// get the state machine
+	StateMachine<Miner>* getFSM() const {
+		return myStateMachine;
+	}
 
 	// getters
 	Location getLocation() const;
@@ -42,8 +57,8 @@ private:
 	// max thirst
 	static const int MAX_THIRST = 3;
 
-	// a pointer to an instance of a State
-	State * pCurrentState;
+	// state machine
+	StateMachine<Miner>* myStateMachine;
 
 	// the place where the miner is situated
 	// TODO should be changed to a location type

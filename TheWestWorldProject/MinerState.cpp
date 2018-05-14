@@ -38,12 +38,12 @@ void EnterMineAndDigForNugget::Execute(Miner * pMiner)
 
 	// if enough gold mined, go and put it in the bank
 	if (pMiner->isPocketFull()) {
-		pMiner->ChangeState(VisitBankAndDepositGold::getInstance());
+		pMiner->getFSM()->ChangeState(VisitBankAndDepositGold::getInstance());
 	}
 
 	// if thirsty
 	if (pMiner->isThirsty()) {
-		pMiner->ChangeState(QuenchThirst::getInstance());
+		pMiner->getFSM()->ChangeState(QuenchThirst::getInstance());
 	}
 }
 
@@ -121,6 +121,25 @@ void QuenchThirst::Exit(Miner * pMiner)
 QuenchThirst * QuenchThirst::getInstance()
 {
 	static QuenchThirst instance;
+
+	return &instance;
+}
+
+void MinerGlobalState::Enter(Miner * pMiner)
+{
+}
+
+void MinerGlobalState::Execute(Miner * pMiner)
+{
+}
+
+void MinerGlobalState::Exit(Miner * pMiner)
+{
+}
+
+MinerGlobalState * MinerGlobalState::getInstance()
+{
+	static MinerGlobalState instance;
 
 	return &instance;
 }

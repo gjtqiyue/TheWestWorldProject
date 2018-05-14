@@ -120,6 +120,7 @@
     <ClInclude Include="EntityNames.h" />
     <ClInclude Include="Miner.h" />
     <ClInclude Include="State.h" />
+    <ClInclude Include="StateMachine.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGameEntity.cpp" />
