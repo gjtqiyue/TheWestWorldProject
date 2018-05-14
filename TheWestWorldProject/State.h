@@ -1,18 +1,30 @@
 #pragma once
+#ifndef STATE_H
+#define STATE_H
 
 class Miner;
+
+enum Location {
+	goldmine,
+};
 
 class State
 {
 public:
-	State();
 
-	~State();
+	virtual ~State() {};
 
-	virtual void Enter(Miner* a);
+	virtual void Enter(Miner* a) = 0;
 
-	virtual void Execute(Miner* b);
+	virtual void Execute(Miner* b) = 0;
 
-	virtual void Exit(Miner* c);
+	virtual void Exit(Miner* c) = 0;
 };
+
+
+
+
+
+#endif
+
 

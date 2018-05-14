@@ -116,13 +116,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BaseGameEntity.h" />
+    <ClInclude Include="MinerState.h" />
+    <ClInclude Include="EntityNames.h" />
     <ClInclude Include="Miner.h" />
     <ClInclude Include="State.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGameEntity.cpp" />
+    <ClCompile Include="MinerState.cpp" />
     <ClCompile Include="Miner.cpp" />
-    <ClCompile Include="State.cpp" />
     <ClCompile Include="TheWestWorld.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

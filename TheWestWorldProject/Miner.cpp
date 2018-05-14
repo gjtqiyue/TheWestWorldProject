@@ -1,9 +1,12 @@
 #include "Miner.h"
-
+#include "MinerState.h"
 
 Miner::Miner(int ID): BaseGameEntity(ID)
 {
-	
+	myGoldCarried = 0;
+	myThirst = 0;
+	myFatigue = 0;
+	myMoneyInBank = 0;
 }
 
 Miner::~Miner()
@@ -33,4 +36,44 @@ void Miner::ChangeState(State * pNewState)
 
 	// enter the current state
 	pCurrentState->Enter(this);
+}
+
+Location Miner::getLocation() const
+{
+	return myLocation;
+}
+
+void Miner::ChangeLocation(Location newLocation)
+{
+	myLocation = newLocation;
+}
+
+void Miner::AddToGoldCarried(int n)
+{
+	myGoldCarried += 1;
+}
+
+void Miner::IncreaseFatigue()
+{
+	myFatigue += 1;
+}
+
+bool Miner::isPocketFull() const
+{
+	if (myGoldCarried > MAX_NUGGETS) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+bool Miner::isThirsty() const
+{
+	if (myThirst > MAX_THIRST) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }

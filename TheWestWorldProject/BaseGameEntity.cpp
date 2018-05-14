@@ -1,24 +1,14 @@
+#ifndef ENTITY_H
+#define ENTITY_H
+
 #include "BaseGameEntity.h"
+#include <cassert>
 
-
+int BaseGameEntity::myNextValidID = 0;
 
 BaseGameEntity::BaseGameEntity(int newID)
 {
 	setID(newID);
-}
-
-
-BaseGameEntity::~BaseGameEntity()
-{
-}
-
-void BaseGameEntity::Update()
-{
-}
-
-int BaseGameEntity::getID() const
-{
-	return myID; 
 }
 
 // check the id to make sure the id is unique
@@ -27,15 +17,14 @@ void BaseGameEntity::setID(int val)
 {
 
 	// check the new ID
-	if (val < BaseGameEntity::myNextValidID) {
-		// throw error
-		
-	}
+	assert((val >= myNextValidID) && "<BaseGameEntity::SetID>: invalid ID");
 
 	//myNextValidID
 	// increment the avaliable id
-	BaseGameEntity::myNextValidID = val + 1;
+	myNextValidID = val + 1;
 
 	// update the id
 	myID = val;
 }
+
+#endif // !ENTITY_H

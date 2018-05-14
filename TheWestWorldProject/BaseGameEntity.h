@@ -1,16 +1,20 @@
 #pragma once
+#ifndef BASEENTITY_H
+#define BASEENTITY_H
 
 class BaseGameEntity
 {
 public:
 	BaseGameEntity(int);
 
-	~BaseGameEntity();
+	virtual ~BaseGameEntity() {};
 
 	// update at each frame to update the state
-	virtual void Update();
+	// more implementation in the extended class, =0 means no need to implement in this class
+	virtual void Update() = 0;
 
-	int getID() const;
+	
+	int getID() const { return myID; }
 
 private:
 	// every entity has an ID session number
@@ -22,6 +26,8 @@ private:
 	// make sure the ID is set correctly
 	void setID(int);
 };
+
+#endif // !BASEENTITY_H
 
 
 
