@@ -10,7 +10,7 @@ using namespace std;
 enum Name {
 	Ent_Miner_Bob,
 
-	Ent_Lisa
+	Ent_Elsa
 };
 
 inline string GetNameOfEntity(int id) {
@@ -18,8 +18,8 @@ inline string GetNameOfEntity(int id) {
 	case Name::Ent_Miner_Bob:
 		return "Miner Bob";
 		break;
-	case Name::Ent_Lisa:
-		return "Lisa";
+	case Name::Ent_Elsa:
+		return "Elsa";
 		break;
 	default:
 		return "Unknown!";

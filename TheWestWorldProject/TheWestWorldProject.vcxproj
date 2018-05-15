@@ -116,9 +116,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="BaseGameEntity.h" />
+    <ClInclude Include="MessageTypes.h" />
     <ClInclude Include="MinerState.h" />
     <ClInclude Include="EntityNames.h" />
     <ClInclude Include="Miner.h" />
+    <ClInclude Include="MinerWife.h" />
+    <ClInclude Include="MinerWifeState.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="StateMachine.h" />
   </ItemGroup>
@@ -126,6 +129,8 @@
     <ClCompile Include="BaseGameEntity.cpp" />
     <ClCompile Include="MinerState.cpp" />
     <ClCompile Include="Miner.cpp" />
+    <ClCompile Include="MinerWife.cpp" />
+    <ClCompile Include="MinerWifeState.cpp" />
     <ClCompile Include="TheWestWorld.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

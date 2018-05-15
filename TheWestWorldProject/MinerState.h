@@ -78,15 +78,15 @@ public:
 
 };
 
-class GoHomeAndSleep : public State<Miner>
+class GoHomeAndSleepTilRested : public State<Miner>
 {
 private:
 
-	GoHomeAndSleep() {};
+	GoHomeAndSleepTilRested() {};
 
 	// copy ctor and assignment should be private
-	GoHomeAndSleep(const GoHomeAndSleep &);
-	GoHomeAndSleep& operator=(const GoHomeAndSleep &);
+	GoHomeAndSleepTilRested(const GoHomeAndSleepTilRested &);
+	GoHomeAndSleepTilRested& operator=(const GoHomeAndSleepTilRested &);
 
 public:
 
@@ -99,7 +99,7 @@ public:
 
 	virtual void Exit(Miner* pMiner);
 
-	static GoHomeAndSleep* getInstance();
+	static GoHomeAndSleepTilRested* getInstance();
 
 };
 

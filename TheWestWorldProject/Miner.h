@@ -10,7 +10,8 @@
 class Miner : public BaseGameEntity
 {
 public:
-	Miner(int id) :BaseGameEntity(id),
+	Miner(int id);
+	/*Miner(int id) :BaseGameEntity(id),
 		myLocation(Location::shack),
 		myGoldCarried(0),
 		myMoneyInBank(0),
@@ -19,8 +20,8 @@ public:
 	{
 		myStateMachine = new StateMachine<Miner>(this);
 
-		myStateMachine->SetCurrentState(GoHomeAndSleep::getInstance());
-	}
+		myStateMachine->SetCurrentState(GoHomeAndSleepTilRested::getInstance());
+	}*/
 
 	~Miner() { delete myStateMachine; };
 
@@ -33,6 +34,9 @@ public:
 
 	// getters
 	Location getLocation() const;
+	int BankSaving() const;
+	int GoldCarried() const;
+	int ComfortLevel() const;
 
 	// methods
 	// chagne the location of the miner
@@ -44,18 +48,34 @@ public:
 	// increase fatigue
 	void IncreaseFatigue();
 
+	// deposit the money
+	void DepositGold(int amount);
+
+	// set new comfort level
+	void setComfortLevel(int n);
+
+	// set the thirst
+	void setThirst();
+
+	// rest
+	void Rest();
+
 	bool isPocketFull() const;
 	bool isThirsty() const;
+	bool isRested() const;
 
 
 
 private:
 
 	// max nugget
-	static const int MAX_NUGGETS = 5;
+	static const int MAX_NUGGETS = 2;
 
 	// max thirst
-	static const int MAX_THIRST = 3;
+	static const int MAX_THIRST = 5;
+
+	// comfor level 
+	static int myComfortLevel;
 
 	// state machine
 	StateMachine<Miner>* myStateMachine;

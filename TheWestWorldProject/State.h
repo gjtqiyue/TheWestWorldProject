@@ -6,7 +6,10 @@ class Miner;
 
 enum Location {
 	goldmine,
-	shack
+	shack,
+	bank,
+	saloon,
+	loc
 };
 
 template <class entity_type>

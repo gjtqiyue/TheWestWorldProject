@@ -36,7 +36,7 @@ public:
 		                               pPreviousState(NULL)
 	{}
 
-	virtual ~StateMachine();
+	virtual ~StateMachine() {};
 
 	void Update() const {
 		// call to execute global state and current state if exist
